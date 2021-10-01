@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: rgb(189, 74, 74);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .calculator {
+    width: 28rem;
+    height: 50rem;
+    background: white;
+    border-radius: 0.8rem;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(56, 37, 37, 0.747);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+
+    .result-container {
+      text-align: right;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .history {
+        font-size: 1.7rem;
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        color: rgb(97, 94, 94);
+      }
+      .result {
+        flex: 2;
+        font-size: 3.2rem;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    .buttons-container {
+      flex: 3;
+      padding: 0.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: repeat(5, 1fr);
+      grid-gap: 1rem;
+      place-items: center;
+
+      .button {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: none;
+        background: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .special-operator {
+        background: hsla(0, 0%, 50%, 0.418);
+      }
+
+      #equal {
+        grid-row: 5/6;
+        grid-column: 4/5;
+      }
+      #num0 {
+        grid-column: 2/3;
+      }
+      #divide {
+        background: hsla(349, 100%, 63%, 0.75);
+      }
+      #multiply {
+        background: #ffd670;
+      }
+
+      #substract {
+        background: #718f94;
+      }
+      #add {
+        background: hsl(16, 100%, 72%);
+      }
+      #equal {
+        background: hsl(183, 40%, 72%);
+      }
+    }
+  }
+}
