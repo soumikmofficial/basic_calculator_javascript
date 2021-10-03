@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   bottom: 0;
@@ -6,6 +7,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Yaldevi", sans-serif;
 }
 
 body {
@@ -42,10 +44,12 @@ body {
       .result-container {
         flex: 2;
         display: flex;
-        // justify-content: end;
-        // align-items: end;
+        justify-content: end;
+        align-items: end;
         padding-bottom: 0.5rem;
         flex-wrap: wrap;
+        word-wrap: break-word;
+        word-break: break-all;
         .result {
           font-size: 2.5rem;
         }
@@ -72,8 +76,13 @@ body {
         font-weight: bold;
       }
 
+      .operator {
+        font-size: 2rem;
+      }
+
       .special-operator {
         background: hsla(0, 0%, 50%, 0.418);
+        font-size: 1.5rem;
       }
 
       #equal {

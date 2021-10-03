@@ -1,68 +1,45 @@
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 const result = document.querySelector(".result");
 const history = document.querySelector(".history");
-const operators = document.querySelectorAll(".operator");
-const numbers = document.querySelectorAll(".number");
+const allClearBtn = document.querySelector("#all-clear");
+const clearBtn = document.querySelector("#clear");
 
-// todo: print history and get history function
+// todo: add class with two display fields
 
-const getHistory = () => history.textContent;
-
-const printHistory = (value) => (history.textContent = value);
-
-// todo: print result and getresult
-
-const getResult = () => {
-  return result.textContent;
-};
-
-const printResult = (value) => {
-  if (!value) {
-    result.textContent = "";
-  } else {
-    result.textContent = getFormattedNumber(value);
+class Calculator {
+  constructor(historyElement, resultElement) {
+    this.historyElement = historyElement;
+    this.resultElement = resultElement;
+    this.allClear();
   }
-};
 
-// get formatted number function
-const getFormattedNumber = (value) => {
-  const num = Number(value);
-  const formatted = num.toLocaleString("en");
-  return formatted;
-};
+  allClear() {
+    this.history = "";
+    this.result = "";
+    this.operation = undefined;
+  }
 
-// reverse number formatter function
-const reverseFormat = (value) => {
-  const num = Number(value.replace(/,/g, ""));
-  return num;
-};
+  clear() {}
 
-// all clear function
-const allClear = () => {
-  result.textContent = "";
-  history.textContent = "";
-};
+  appendNumber(number) {
+    this.result = this.result.toString() + number.toString();
+  }
 
-operators.forEach((operator) => {
-  operator.addEventListener("click", () => {
-    // *all clear function
-    if (operator.id === "all-clear") {
-      allClear();
-    }
+  selectOperation() {}
 
-    // *clear function
-    if (operator.id === "clear") {
-      let res = reverseFormat(getResult()).toString();
-      const newResult = res.substring(0, res.length - 1);
-      printResult(newResult);
-    }
-  });
-});
+  compute() {}
+
+  updateDisplay() {
+    this.resultElement.innerText = this.result;
+  }
+}
+
+const calculator = new Calculator(history, result);
+
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    let res = reverseFormat(getResult());
-    if (res !== NaN) {
-      let newRes = res + number.id;
-      printResult(newRes);
-    }
+    calculator.appendNumber(number.innerText);
+    calculator.updateDisplay();
   });
 });

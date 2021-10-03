@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   bottom: 0;
@@ -7,6 +8,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Yaldevi", sans-serif;
 }
 
 body {
@@ -79,9 +81,17 @@ body .calculator .result-container .result-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   padding-bottom: 0.5rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 body .calculator .result-container .result-container .result {
@@ -114,8 +124,13 @@ body .calculator .buttons-container .button {
   font-weight: bold;
 }
 
+body .calculator .buttons-container .operator {
+  font-size: 2rem;
+}
+
 body .calculator .buttons-container .special-operator {
   background: rgba(128, 128, 128, 0.418);
+  font-size: 1.5rem;
 }
 
 body .calculator .buttons-container #equal {
