@@ -23,6 +23,7 @@ class Calculator {
   clear() {}
 
   appendNumber(number) {
+    if (number === "." && this.result.includes(".")) return;
     this.result = this.result.toString() + number.toString();
   }
 
