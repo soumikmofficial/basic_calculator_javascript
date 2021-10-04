@@ -52,7 +52,7 @@ class Calculator {
         break;
       case "-":
         computation = his - res;
-        times;
+        break;
       case "×":
         computation = his * res;
         break;
@@ -68,9 +68,32 @@ class Calculator {
     this.history = "";
   }
 
+  getDisplayNumber(value) {
+    let stringNumber = value.toString();
+    let integerNumber = parseFloat(stringNumber.split(".")[0]);
+    let decimalNumber = stringNumber.split(".")[1];
+    let integerDisplay;
+    if (isNaN(integerNumber)) {
+      integerDisplay = "";
+    } else {
+      integerDisplay = integerNumber.toLocaleString("en", {
+        maximumFractionDigits: 0,
+      });
+    }
+    if (decimalNumber) {
+      return `${integerDisplay}.${decimalNumber}`;
+    } else {
+      return integerDisplay;
+    }
+  }
+
   updateDisplay() {
     this.resultElement.innerText = this.result;
-    this.historyElement.innerText = this.history;
+    if (this.operation) {
+      this.historyElement.innerText = `${this.history} ${this.operation}`;
+    } else {
+      this.historyElement.innerText = "";
+    }
   }
 }
 
